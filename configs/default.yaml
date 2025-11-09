@@ -1,0 +1,43 @@
+seed: 42
+paths:
+  raw_data: entity_aware_fnd/data/raw/news.csv
+  cache_dir: entity_aware_fnd/data/cache
+  processed_dir: entity_aware_fnd/data/processed
+  checkpoints_dir: checkpoints
+  logs_dir: logs
+model:
+  text_encoder: distilbert-base-uncased
+  freeze_text_encoder: false
+  max_length: 256
+  kg_encoder: transe   # options: transe, rgcn
+  fusion: concat       # options: concat, attention
+  hidden_dims: [512, 256]
+  dropout: 0.2
+training:
+  batch_size: 8
+  num_epochs: 1
+  lr: 3e-5
+  weight_decay: 0.01
+  warmup_steps: 0
+  eval_steps: 5
+  save_best: true
+  gradient_accumulation: 1
+  mixed_precision: true
+  early_stopping_patience: 3
+data:
+  train_split: 0.8
+  val_split: 0.1
+  test_split: 0.1
+  shuffle: true
+kg:
+  max_entity_neighbors: 10
+  max_triples: 50
+  embedding_dim: 100
+  sparql_endpoint: https://query.wikidata.org/sparql
+  cache_triples: true
+inference:
+  top_k_entities: 10
+  use_zero_shot_fallback: true
+  zero_shot_model: valhalla/distilbart-mnli-12-1
+logging:
+  level: INFO

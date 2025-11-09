@@ -1,0 +1,21 @@
+# Core
+numpy
+pandas
+scikit-learn
+pyarrow
+
+# Deep Learning / NLP
+torch
+transformers
+sentencepiece
+spacy
+
+# Utilities
+python-dotenv
+tqdm
+rich
+pyyaml
+requests
+
+# App (demo UI)
+streamlit
