@@ -12,7 +12,7 @@ venv/
 
 # Data & artifacts
 /data/
-entity_aware_fnd/data/raw/
+entity_aware_fnd/data/
 entity_aware_fnd/data/processed/
 entity_aware_fnd/data/cache/
 outputs/
